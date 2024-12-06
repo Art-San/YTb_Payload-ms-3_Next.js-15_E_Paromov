@@ -18,11 +18,17 @@
     "@payloadcms/next": "^3.4.0",
     "@payloadcms/payload-cloud": "^3.4.0",
     "@payloadcms/richtext-lexical": "^3.4.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
     "next": "15.0.3",
     "payload": "^3.4.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
