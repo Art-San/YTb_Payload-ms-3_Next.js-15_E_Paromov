@@ -5,7 +5,20 @@ export const MoviesCollection: CollectionConfig = {
 
   fields: [
     { type: 'text', name: 'name', required: true },
-    { type: 'upload', relationTo: 'media', name: 'poster', required: true }
+    { type: 'upload', relationTo: 'media', name: 'poster', required: true },
+    {
+      type: 'array',
+      name: 'tags',
+      required: true,
+      fields: [
+        {
+          type: 'relationship',
+          relationTo: ['tags'],
+          name: 'name',
+          required: true
+        }
+      ]
+    }
   ]
 }
 
