@@ -106,11 +106,8 @@ export interface Movie {
   name: string;
   poster: number | Media;
   tags: {
-    name: {
-      relationTo: 'tags';
-      value: number | Tag;
-    };
-    id?: string | null;
+    relationTo: 'tags';
+    value: number | Tag;
   }[];
   updatedAt: string;
   createdAt: string;
@@ -230,12 +227,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface MoviesSelect<T extends boolean = true> {
   name?: T;
   poster?: T;
-  tags?:
-    | T
-    | {
-        name?: T;
-        id?: T;
-      };
+  tags?: T;
   updatedAt?: T;
   createdAt?: T;
 }
