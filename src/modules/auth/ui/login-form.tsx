@@ -11,6 +11,7 @@ import { Label } from '@/shared/ui/label'
 import { Alert, AlertDescription } from '@/shared/ui/alert'
 import { appFetch } from '@/shared/api'
 import { useRouter } from 'next/navigation'
+import { login } from '../actions/auth'
 
 const schema = z.object({
   email: z.string().email(),
@@ -32,12 +33,20 @@ export function LoginForm() {
   const router = useRouter()
 
   const onSubmit = async (data: FormLoginData) => {
-    await appFetch('api/users/login', { json: data })
-      .then(() => router.push('/'))
-      .catch((error) => {
-        setMessage(error.message)
-      })
+    const result = await login(data)
+    if (result.error) {
+      setMessage(result.error)
+    } else if (result.success) {
+      setMessage(result.success)
+    }
   }
+  // const onSubmit = async (data: FormLoginData) => {
+  //   await appFetch('api/users/login', { json: data })
+  //     .then(() => router.push('/'))
+  //     .catch((error) => {
+  //       setMessage(error.message)
+  //     })
+  // }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

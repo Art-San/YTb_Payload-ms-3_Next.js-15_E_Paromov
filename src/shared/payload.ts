@@ -1,25 +1,20 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
+import { cookies } from 'next/headers'
+import { appFetch } from '@/shared/api'
 
 export const getAppPayload = () => getPayload({ config })
 
-// import { getPayload } from 'payload'
-// import config from '@payload-config'
-// import { cookies } from 'next/headers'
-// import { appFetch } from '@/shared/api'
+export const getToken = async () => {
+  return (await cookies()).get('payload-token')?.value
+}
 
-// export const getAppPayload = () => getPayload({ config })
-
-// export const getToken = async () => {
-//   return (await cookies()).get('payload-token')?.value
-// }
-
-// export const getMe = async () => {
-//   const token = await getToken()
-//   return appFetch('api/users/me', {
-//     headers: { Authorization: `JWT ${token}` }
-//   })
-// }
+export const getMe = async () => {
+  const token = await getToken()
+  return appFetch('api/users/me', {
+    headers: { Authorization: `JWT ${token}` }
+  })
+}
 
 // export const checkAuth = async () => {
 //   const token = await getToken()
