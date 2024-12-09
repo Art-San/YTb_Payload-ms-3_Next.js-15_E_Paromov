@@ -33,13 +33,15 @@ export function LoginForm() {
   const router = useRouter()
 
   const onSubmit = async (data: FormLoginData) => {
-    const response = await appFetch('api/users/login', { json: data })
-    console.log(333, response)
-    // await appFetch('api/users/login', { json: data })
-    //   .then(() => router.push('/'))
-    //   .catch((error) => {
-    //     setMessage(error.message)
-    //   })
+    await appFetch('api/users/login', { json: data })
+      .then((res) => {
+        router.push('/')
+        console.log(333, res)
+      })
+      .catch((error) => {
+        console.log(234567, error)
+        setMessage(error.message)
+      })
   }
 
   // const onSubmit = async (data: FormLoginData) => {
