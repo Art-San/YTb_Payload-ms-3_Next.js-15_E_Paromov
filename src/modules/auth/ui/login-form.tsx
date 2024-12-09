@@ -33,19 +33,22 @@ export function LoginForm() {
   const router = useRouter()
 
   const onSubmit = async (data: FormLoginData) => {
-    const result = await login(data)
-    if (result.error) {
-      setMessage(result.error)
-    } else if (result.success) {
-      setMessage(result.success)
-    }
+    const response = await appFetch('api/users/login', { json: data })
+    console.log(333, response)
+    // await appFetch('api/users/login', { json: data })
+    //   .then(() => router.push('/'))
+    //   .catch((error) => {
+    //     setMessage(error.message)
+    //   })
   }
+
   // const onSubmit = async (data: FormLoginData) => {
-  //   await appFetch('api/users/login', { json: data })
-  //     .then(() => router.push('/'))
-  //     .catch((error) => {
-  //       setMessage(error.message)
-  //     })
+  //   const result = await login(data) // login серверный акшен, он тут не подходит
+  //   if (result.error) {
+  //     setMessage(result.error)
+  //   } else if (result.success) {
+  //     setMessage(result.success)
+  //   }
   // }
 
   return (

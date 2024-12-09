@@ -1,5 +1,5 @@
-const baseUrl = '/'
-// const baseUrl = 'http://localhost:3000/'
+// const baseUrl = '/'
+const baseUrl = 'http://localhost:3000/'
 
 export const appFetch = async (
   url: string,
