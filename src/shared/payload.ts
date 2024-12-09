@@ -16,14 +16,14 @@ export const getMe = async () => {
   })
 }
 
-export const checkAuth = async () => {
-  const token = await getToken()
-  console.log('===token===', token)
-  if (!token) return false
+// export const checkAuth = async () => {
+//   const token = await getToken()
+//   console.log('===token===', token)
+//   if (!token) return false
 
-  // Возвращаемый результат будет представлять собой логическое значение, представляющее успех или неудачу.
-  return (await getAppPayload()).verifyEmail({
-    collection: 'users', // required
-    token // токен, сохраненный у пользователя как `_verificationToken`
-  })
-}
+//   // Возвращаемый результат будет представлять собой логическое значение, представляющее успех или неудачу.
+//   return (await getAppPayload()).verifyEmail({
+//     collection: 'users', // required
+//     token // токен, сохраненный у пользователя как `_verificationToken`
+//   })
+// }

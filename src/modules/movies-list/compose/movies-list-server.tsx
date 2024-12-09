@@ -8,13 +8,3 @@ export async function MoviesListServer() {
   // return moviesList
 }
 
-// import MovieList from './movie-list'
-// import { getAppPayload } from '@/shared/payload'
-
-// export default async function MoviesList() {
-//   const payload = await getAppPayload()
-//   const movies = await payload.find({
-//     collection: 'movies'
-//   })
-//   return <MovieList movies={{}} />
-// }

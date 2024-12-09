@@ -1,8 +1,7 @@
 import { getMe } from '@/shared/payload'
-// import { getMe } from '@/modules/auth/model/get-me'
-
-import { checkAuth } from '@/shared/payload'
 import { redirect } from 'next/navigation'
+
+// import { checkAuth } from '@/shared/payload'
 
 export default async function Layout({
   children
@@ -11,7 +10,7 @@ export default async function Layout({
 }) {
   // const isAuth = await checkAuth()
   const isAuth = await getMe()
-  console.log(345, '===isAuth===', isAuth)
+  // console.log(345, '===isAuth===', isAuth)
 
   if (!isAuth) {
     redirect('/auth')

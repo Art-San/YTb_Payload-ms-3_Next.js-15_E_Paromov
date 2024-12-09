@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { register as registerAction } from '../actions/auth'
 
 const schema = z.object({
   email: z.string().email(),
